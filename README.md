@@ -28,7 +28,7 @@ optional cipher and digest algorithms.
 
 ```js
 const storage = require('ara-secret-storage')
-const cyrpto = require('ara-crypto')
+const crypto = require('ara-crypto')
 
 const message = Buffer.from('hello')
 const key = Buffer.alloc(16).fill('key')
@@ -65,7 +65,7 @@ object.
 
 ```js
 const storage = require('ara-secret-storage')
-const cyrpto = require('ara-crypto')
+const crypto = require('ara-crypto')
 
 const message = Buffer.from('hello')
 const key = Buffer.alloc(16).fill('key')
