@@ -1,0 +1,39 @@
+{
+  "name": "ara-secret-storage",
+  "version": "1.0.0",
+  "description": "ARA RFC 0001 Secret Storage implementation",
+  "main": "index.js",
+  "bin": {
+    "ass": "./bin/ass"
+  },
+  "directories": {
+    "bin": "bin",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava test",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "ara",
+    "secret",
+    "storage"
+  ],
+  "author": "Joseph Werle <werle@littlstar.com>",
+  "license": "LGPL-3.0",
+  "dependencies": {
+    "ara-console": "github:arablocks/ara-console",
+    "ara-crypto": "github:arablocks/ara-crypto",
+    "collect-stream": "^1.2.1",
+    "debug": "^3.1.0",
+    "is-buffer": "^2.0.3",
+    "table": "^4.0.3",
+    "uuid": "^3.3.2",
+    "yargs": "^12.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "eslint": "^5.3.0",
+    "eslint-config-ara": "github:arablocks/eslint-config-ara"
+  }
+}

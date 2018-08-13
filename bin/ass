@@ -1,0 +1,144 @@
+#!/usr/bin/env node
+
+const { kDefaultCipher, kDefaultDigest } = require('../constants')
+const { getBorderCharacters, table } = require('table')
+const { getCiphers, getHashes } = require('crypto')
+const { error, warn } = require('ara-console')
+const collect = require('collect-stream')
+const program = require('yargs')
+const storage = require('../')
+const crypto = require('ara-crypto')
+const debug = require('debug')(require('../package').name)
+const fs = require('fs')
+
+const { argv } = program
+  .usage('usage: $0 [-hV] [options] ...value')
+  .alias('h', 'help')
+  .alias('V', 'version')
+  .option('debug', {
+    alias: 'D',
+    describe: 'Enable debug output.'
+  })
+  .option('key', {
+    alias: 'k',
+    describe: 'Secret storage encryption key.'
+  })
+  .option('cipher', {
+    alias: 'c',
+    default: kDefaultCipher,
+    describe: 'Secret storage cipher algorithm.',
+  })
+  .option('digest', {
+    alias: 'd',
+    default: kDefaultDigest,
+    describe: 'Secret storage digest hash algorithms',
+  })
+  .option('input', {
+    alias: 'i',
+    describe: 'Encrypted input that should be decrypted.'
+  })
+  .option('output', {
+    alias: 'o',
+    describe: 'Encryption of decryption output.'
+  })
+  .option('encrypt', {
+    describe: 'Encrypt input.'
+  })
+  .option('decrypt', {
+    describe: 'Decrypt input.'
+  })
+  .option('list-ciphers', {
+    describe: 'List supported ciphers for this command.'
+  })
+  .option('list-digests', {
+    describe: 'List supported digests for this command.'
+  })
+
+if (argv.debug) {
+  require('debug').enable(require('../package').name)
+}
+
+if (argv['list-ciphers']) {
+  draw(getCiphers())
+  process.exit(0)
+}
+
+if (argv['list-digests']) {
+  draw(getHashes())
+  process.exit(0)
+}
+
+if (!argv.key) {
+  fatal(new Error('Missing encryption key. See \'ass --help\' for usage.'))
+}
+
+if (!argv.encrypt && (!process.stdin.isTTY || argv.input)) {
+  decrypt()
+} else {
+  encrypt()
+}
+
+function encrypt() {
+  const iv = crypto.randomBytes(16)
+  const key = Buffer.alloc(16).fill(argv.key)
+  const values = Buffer.from(argv._.join(' '))
+  const buffer = storage.encrypt(values, { key, iv })
+  const output = argv.output
+    ? fs.createWriteStream(argv.output)
+    : process.stdout
+
+  output.write(JSON.stringify(buffer))
+}
+
+function decrypt() {
+  const key = Buffer.alloc(16).fill(argv.key)
+  const input = argv.input
+    ? fs.createReadStream(argv.input)
+    : process.stdin
+
+  const output = argv.output
+    ? fs.createWriteStream(argv.output)
+    : process.stdout
+
+  collect(input, (err, buffer) => {
+    if (err) {
+      fatal(err)
+    } else {
+      try {
+        const doc = JSON.parse(buffer)
+        output.write(storage.decrypt(doc, { key }))
+      } catch (err) {
+        fatal(err)
+      }
+    }
+  })
+}
+
+function fatal(err) {
+  debug(err.stack || err)
+  error(err.message || err)
+  process.exit(1)
+}
+
+function draw(output) {
+  process.stdout.write(table(partition(output, 4), {
+    border: getBorderCharacters('void'),
+    columnDefault: { paddingLeft: 0, paddingRight: 1 },
+    drawHorizontalLine: () => false
+  }))
+}
+
+function partition(array, width) {
+  const result = []
+  let tmp = new Array(width)
+
+  for (let i = 0; i < array.length; ++i) {
+    tmp[i % width] = array[i]
+    if (i && 0 === i % (width)) {
+      result.push(tmp)
+      tmp = new Array(width)
+    }
+  }
+
+  return result
+}
