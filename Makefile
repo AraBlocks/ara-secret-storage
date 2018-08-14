@@ -19,13 +19,13 @@ package.json:
 	$(NPM) install
 
 ifeq (Linux, $(OS))
-install:
+install: build
 	install $(BUILD)/linux/$(TARGET) $(PREFIX)/bin
 else ifeq (Darwin, $(OS))
-install:
+install: build
 	install $(BUILD)/macos/$(TARGET) $(PREFIX)/bin
 else
-install:
+install: build
 	$(error "Error: $(OS) is not supported")
 endif
 
