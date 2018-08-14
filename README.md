@@ -3,7 +3,7 @@
 ARA Secret Storage
 ==================
 
-[![Build Status](https://travis-ci.com/AraBlocks/ara-secret-storage.svg?token=6WjTyCg41y8MBmCzro5x&branch=master)](https://travis-ci.com/arablocks/ara-secret-storage)
+[![Build Status](https://travis-ci.com/AraBlocks/ara-secret-storage.svg?token=6WjTyCg41y8MBmCzro5x&branch=master)](https://travis-ci.com/AraBlocks/ara-secret-storage)
 
 This module implements [ARA RFC
 0001](https://github.com/AraBlocks/rfcs/blob/master/text/0001-ass.md).
@@ -100,6 +100,7 @@ Releases follow [Semantic Versioning](https://semver.org/)
 ## See Also
 
 - [ARA RFC 0001](https://github.com/AraBlocks/rfcs/blob/master/text/0001-ass.md)
+- [ara-crypto](https://github.com/AraBlocks/ara-crypto)
 
 ## License
 
