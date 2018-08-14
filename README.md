@@ -1,6 +1,4 @@
-<img src="https://github.com/arablocks/docs/blob/master/ara.png" width="30" height="30" />
-
-ARA Secret Storage
+<img src="https://github.com/arablocks/docs/blob/master/ara.png" width="30" height="30" /> ara-secret-storage
 ==================
 
 [![Build Status](https://travis-ci.com/AraBlocks/ara-secret-storage.svg?token=6WjTyCg41y8MBmCzro5x&branch=master)](https://travis-ci.com/AraBlocks/ara-secret-storage)
