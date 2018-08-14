@@ -18,6 +18,20 @@ This module implements [ARA RFC
 $ npm install arablocks/ara-secret-storage
 ```
 
+### From Source
+
+Please make sure have the latest version of
+[nodejs](https://github.com/nodejs/node) and
+[make](https://www.gnu.org/software/make/) installed on your machine.
+This will only work for Linux and macOS users.
+
+```sh
+$ git clone git@github.com:AraBlocks/ara-secret-storage.git
+$ cd ara-secret-storage
+$ make
+$ make install # you may need sudo
+```
+
 ## API
 
 ### `storage.encrypt(value, opts)` <a name="encrypt"></a>
