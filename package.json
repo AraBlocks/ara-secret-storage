@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "ava test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pkg": "sh ./scripts/package.sh"
   },
   "keywords": [
     "ara",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "eslint": "^5.3.0",
-    "eslint-config-ara": "github:arablocks/eslint-config-ara"
+    "eslint-config-ara": "github:arablocks/eslint-config-ara",
+    "pkg": "^4.3.4"
   }
 }
