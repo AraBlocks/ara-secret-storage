@@ -82,8 +82,8 @@ const crypto = require('ara-crypto')
 const message = Buffer.from('hello')
 const key = Buffer.alloc(16).fill('key')
 const iv = crypto.randomBytes(16)
-const enc = crypto.encrypt(message, { key, iv })
-const dec = crypto.decrypt(enc, { key })
+const enc = storage.encrypt(message, { key, iv })
+const dec = storage.decrypt(enc, { key })
 assert(0 == Buffer.compare(dec, message))
 ```
 
