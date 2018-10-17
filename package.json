@@ -26,8 +26,8 @@
   "author": "Joseph Werle <werle@littlstar.com>",
   "license": "LGPL-3.0",
   "dependencies": {
-    "ara-console": "github:arablocks/ara-console",
-    "ara-crypto": "github:arablocks/ara-crypto",
+    "ara-console": "github:arablocks/ara-console#semver:0.2.x",
+    "ara-crypto": "github:arablocks/ara-crypto#semver:0.7.x",
     "collect-stream": "^1.2.1",
     "debug": "^3.1.0",
     "is-buffer": "^2.0.3",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "eslint": "^5.3.0",
-    "eslint-config-ara": "github:arablocks/eslint-config-ara",
+    "eslint-config-ara": "github:arablocks/eslint-config-ar#semver:2.1.x",
     "pkg": "^4.3.4"
   }
 }
