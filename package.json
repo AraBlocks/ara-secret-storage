@@ -38,7 +38,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "eslint": "^5.3.0",
-    "eslint-config-ara": "github:arablocks/eslint-config-ar#semver:2.1.x",
+    "eslint-config-ara": "github:arablocks/eslint-config-ara#semver:^2.1.1",
     "pkg": "^4.3.4"
   }
 }
