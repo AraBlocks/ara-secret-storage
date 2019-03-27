@@ -1,3 +1,8 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/AraBlocks/ara-secret-storage/compare/0.1.2...0.1.3) (2019-03-27)
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/AraBlocks/ara-secret-storage/compare/0.1.1...0.1.2) (2019-03-27)
 
