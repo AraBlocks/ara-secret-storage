@@ -13,11 +13,11 @@ test('encrypt(opts)', async (t) => {
   const iv = randomBytes(16)
   const key = Buffer.alloc(16).fill('key')
 
-  t.throws(() => encrypt(), TypeError)
-  t.throws(() => encrypt(null), TypeError)
-  t.throws(() => encrypt(42), TypeError)
-  t.throws(() => encrypt(true), TypeError)
-  t.throws(() => encrypt({}), TypeError)
+  t.throws(() => encrypt(), {instanceOf: TypeError})
+  t.throws(() => encrypt(null), {instanceOf: TypeError})
+  t.throws(() => encrypt(42), {instanceOf: TypeError})
+  t.throws(() => encrypt(true), {instanceOf: TypeError})
+  t.throws(() => encrypt({}), {instanceOf: TypeError})
 
   t.throws(() => encrypt('hello', null))
   t.throws(() => encrypt('hello', {}))
