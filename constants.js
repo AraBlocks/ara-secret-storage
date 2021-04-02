@@ -1,6 +1,6 @@
 const { version } = require('./package.json')
 
-const versions = version.split('.').map(v => parseInt(v, 10))
+const versions = version.split('.').map((v) => parseInt(v, 10))
 const [
   kVersionMajor,
   kVersionMinor,

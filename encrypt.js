@@ -1,7 +1,7 @@
 const { createCipheriv, createHmac } = require('crypto')
 const isBuffer = require('is-buffer')
 const uint64 = require('ara-crypto/uint64')
-const uuid = require('uuid/v4')
+const uuid = require('uuid')
 
 const {
   kVersion,
@@ -29,7 +29,8 @@ function encrypt(value, opts) {
   } else if ('string' !== typeof value && false === isBuffer(value)) {
     /* eslint-disable-next-line function-paren-newline */
     throw new TypeError(
-      'crypto.encrypt: Expecting value to be a string or buffer.')
+      'crypto.encrypt: Expecting value to be a string or buffer.'
+    )
   } else if (0 === value.length) {
     throw new TypeError('crypto.encrypt: Cannot encrypt empty value.')
   }
@@ -43,7 +44,8 @@ function encrypt(value, opts) {
   } else if ('string' !== typeof opts.key && false === isBuffer(opts.key)) {
     /* eslint-disable-next-line function-paren-newline */
     throw new TypeError(
-      'crypto.encrypt: Expecting encryption key to be a string or buffer.')
+      'crypto.encrypt: Expecting encryption key to be a string or buffer.'
+    )
   }
 
   if (!opts.cipher || 'string' !== typeof opts.cipher) {
@@ -76,7 +78,7 @@ function encrypt(value, opts) {
   hmac.write(buffer)
   hmac.end()
 
-  const id = uuid()
+  const id = uuid.v4()
   const mac = hmac.read().toString('hex')
   const version = uint64.encode(kVersion).toString('hex')
   const cipherparams = { iv: iv.toString('hex') }

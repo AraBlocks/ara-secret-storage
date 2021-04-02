@@ -1,23 +1,19 @@
 const { randomBytes } = require('ara-crypto/random-bytes')
-const { encrypt } = require('../encrypt')
 const uint64 = require('ara-crypto/uint64')
 const test = require('ava')
 
-const {
-  kDefaultCipher,
-  kDefaultDigest,
-  kVersion,
-} = require('../constants')
+const { kDefaultCipher, kDefaultDigest, kVersion } = require('../constants')
+const { encrypt } = require('../encrypt')
 
 test('encrypt(opts)', async (t) => {
   const iv = randomBytes(16)
   const key = Buffer.alloc(16).fill('key')
 
-  t.throws(() => encrypt(), TypeError)
-  t.throws(() => encrypt(null), TypeError)
-  t.throws(() => encrypt(42), TypeError)
-  t.throws(() => encrypt(true), TypeError)
-  t.throws(() => encrypt({}), TypeError)
+  t.throws(() => encrypt(), { instanceOf: TypeError })
+  t.throws(() => encrypt(null), { instanceOf: TypeError })
+  t.throws(() => encrypt(42), { instanceOf: TypeError })
+  t.throws(() => encrypt(true), { instanceOf: TypeError })
+  t.throws(() => encrypt({}), { instanceOf: TypeError })
 
   t.throws(() => encrypt('hello', null))
   t.throws(() => encrypt('hello', {}))
