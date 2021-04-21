@@ -1,3 +1,7 @@
+## [0.2.1](https://github.com/AraBlocks/ara-secret-storage/compare/0.2.0...0.2.1) (2021-04-21)
+
+
+
 # [0.2.0](https://github.com/AraBlocks/ara-secret-storage/compare/0.1.3...0.2.0) (2021-04-02)
 
 
