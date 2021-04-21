@@ -25,26 +25,26 @@ const {
  */
 function encrypt(value, opts) {
   if (null === value) {
-    throw new TypeError('crypto.encrypt: Expecting value. Got null.')
+    throw new TypeError('encrypt: Expecting value. Got null.')
   } else if ('string' !== typeof value && false === isBuffer(value)) {
     /* eslint-disable-next-line function-paren-newline */
     throw new TypeError(
-      'crypto.encrypt: Expecting value to be a string or buffer.'
+      'encrypt: Expecting value to be a string or buffer.'
     )
   } else if (0 === value.length) {
-    throw new TypeError('crypto.encrypt: Cannot encrypt empty value.')
+    throw new TypeError('encrypt: Cannot encrypt empty value.')
   }
 
   if (!opts || 'object' !== typeof opts) {
-    throw new TypeError('crypto.encrypt: Expecting options object.')
+    throw new TypeError('encrypt: Expecting options object.')
   }
 
   if (!opts.key) {
-    throw new TypeError('crypto.encrypt: Expecting encryption key.')
+    throw new TypeError('encrypt: Expecting encryption key.')
   } else if ('string' !== typeof opts.key && false === isBuffer(opts.key)) {
     /* eslint-disable-next-line function-paren-newline */
     throw new TypeError(
-      'crypto.encrypt: Expecting encryption key to be a string or buffer.'
+      'encrypt: Expecting encryption key to be a string or buffer.'
     )
   }
 
@@ -59,11 +59,11 @@ function encrypt(value, opts) {
   }
 
   if ('string' !== typeof opts.cipher) {
-    throw new TypeError('crypto.encrypt: Expecting cipher type to be a string.')
+    throw new TypeError('encrypt: Expecting cipher type to be a string.')
   }
 
   if ('string' !== typeof opts.digest) {
-    throw new TypeError('crypto.encrypt: Expecting digest type to be a string.')
+    throw new TypeError('encrypt: Expecting digest type to be a string.')
   }
 
   const {

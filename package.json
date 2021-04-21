@@ -27,18 +27,18 @@
   "license": "LGPL-3.0",
   "dependencies": {
     "ara-console": "^0.3.0",
-    "ara-crypto": "^0.9.0",
+    "ara-crypto": "^0.9.4",
     "collect-stream": "^1.2.1",
     "debug": "^4.3.1",
     "is-buffer": "^2.0.3",
-    "table": "^6.0.9",
+    "table": "^6.3.2",
     "uuid": "^8.3.2",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
     "ava": "^3.15.0",
     "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.23.0",
+    "eslint": "^7.24.0",
     "eslint-config-ara": "github:arablocks/eslint-config-ara#semver:3.0.x",
     "eslint-plugin-import": "^2.22.1",
     "pkg": "^4.3.4"
